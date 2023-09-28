@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Milestone1Correct", "Milestone1Correct.pyproj", "{F43F2C90-6FC7-466F-A656-6C2BD2FB8BCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F43F2C90-6FC7-466F-A656-6C2BD2FB8BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43F2C90-6FC7-466F-A656-6C2BD2FB8BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61BB1522-27D9-41FF-AE16-FB2011577CB4}
+	EndGlobalSection
+EndGlobal
