@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Milestone2",
+    "\\modules",
+    "\\modules\\Cauchy_Problem",
+    "\\modules\\Temporal_Schemes"
   ],
-  "SelectedNode": "\\C:\\Users\\JOP18\\Desktop\\AMPLI LOCAL\\code",
+  "SelectedNode": "\\modules",
   "PreviewInSolutionExplorer": false
 }
