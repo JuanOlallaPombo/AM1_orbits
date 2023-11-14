@@ -4,8 +4,9 @@
     "\\Milestone2",
     "\\modules",
     "\\modules\\Cauchy_Problem",
+    "\\modules\\Stability_Regions",
     "\\modules\\Temporal_Schemes"
   ],
-  "SelectedNode": "\\modules",
+  "SelectedNode": "\\modules\\Stability_Regions\\Stability.py",
   "PreviewInSolutionExplorer": false
 }

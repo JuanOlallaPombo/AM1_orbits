@@ -16,5 +16,3 @@ def System_matrix(F, U0, t):
 
 def test_System_matrix():
     U0 = [0., 0.]
-
-def Oscillator():
