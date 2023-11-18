@@ -16,13 +16,15 @@ def F_Nbodies(U, t):
     Us = reshape(U, (Nb,Nc,2))              #Creating first pointer
     r = reshape(Us[:,:,0], (Nb,Nc))         #Pointer for position 
     v = reshape(Us[:,:,1], (Nb,Nc))         #Pointer for velocity
+    #print("Position =",r)
+    #print("Velocidad =",v)
 
     F = zeros((2*Nb*Nc))                    #Derivative matrix
     Fs = reshape(F, (Nb,Nc,2))              #Creating pointer for F
     drdt = reshape(Fs[:,:,0], (Nb,Nc))      #Pointer for position derivative
     dvdt = reshape(Fs[:,:,1], (Nb,Nc))      #Pointer for velocity derivative
 
-    drdt = v                                #Derivative of position equals velocity
+    drdt[:] = v[:]                                #Derivative of position equals velocity
 
     for i in range(0,Nb): 
         for j in range(0,Nb):
@@ -39,38 +41,35 @@ tf = 10
 dt = 0.001
 N = int(tf/dt)
 
-U_0 = array([[1,0,0],[0,1,0],[0,1,0],[-1,1,0],[0,0,1],[1,0,-1]])  #Setting initial conditions, starts in point (1,0) with vertical velocity
-r1 = array(zeros((Nc,N)))
-r2 = array(zeros((Nc,N)))
-r3 = array(zeros((Nc,N)))
-
+U_0 = array([1,0,0,1,0,0,0,-1,1,0,0,1,0,1,0,0,1,-1])  #Setting initial conditions, starts in point (1,0) with vertical velocity
+x1 = array(zeros((N)))
+y1 = array(zeros((N)))
+z1 = array(zeros((N)))
+x2 = array(zeros((N)))
+y2 = array(zeros((N)))
+z2 = array(zeros((N)))
+x3 = array(zeros((N)))
+y3 = array(zeros((N)))
+z3 = array(zeros((N)))
 
 U = F_Cauchy(Crank_Nicolson, U_0, F_Nbodies, tf, dt)
-for i in range(0,N):
-    r1[:,i] = U[0:Nc, i]
-    r2[:,i] = U[Nc:2*Nc, i]
-    r3[:,i] = U[2*Nc:3*Nc, i]
 
-x1 = r1[0,:]
-y1 = r1[1,:]
-z1 = r1[2,:]
-
-x2 = r2[0,:]
-y2 = r2[1,:]
-z2 = r2[2,:]
-
-x3 = r3[0,:]
-y3 = r3[1,:]
-z3 = r3[2,:]
-
+x1[:] = U[0, :]
+x2[:] = U[2, :]
+x3[:] = U[4, :]
+y1[:] = U[6, :]
+y2[:] = U[8, :]
+y3[:] = U[10, :]
+z1[:] = U[12, :]    
+z2[:] = U[14, :]
+z3[:] = U[16, :]
 
 fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.set_title('Trajectories')
-for i in range(0,N):
-    ax.scatter(x1[i], y1[i], z1[i])
-    ax.scatter(x2[i], y2[i], z2[i])
-    ax.scatter(x3[i], y3[i], z3[i])
+ax1 = fig.add_subplot(111, projection='3d')
+ax1.plot(x1,y1,z1,'g')
+ax1.plot(x2,y2,z2,'r')
+ax1.plot(x3,y3,z3,'b')
+ax1.set_aspect('auto')
 plt.show()
 
 
