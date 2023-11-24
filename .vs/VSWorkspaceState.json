@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Milestone2",
+    "\\Milestone3",
+    "\\Milestone4",
+    "\\Milestone5",
+    "\\modules",
+    "\\modules\\Cauchy_Problem",
+    "\\modules\\Stability_Regions",
+    "\\modules\\Temporal_Schemes"
   ],
-  "SelectedNode": "\\C:\\Users\\JOP18\\Desktop\\AMPLI LOCAL\\code",
+  "SelectedNode": "\\Milestone3\\Error.py",
   "PreviewInSolutionExplorer": false
 }

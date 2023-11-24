@@ -1,9 +1,6 @@
+#Temporal Schemes
 from scipy.optimize import newton
 
-"""
-Temporal Schemes
-
-"""
 
 def Euler(U, F, dt, t):
     U = U + dt * F(U, t*dt)

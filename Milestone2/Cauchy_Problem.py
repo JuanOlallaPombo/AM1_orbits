@@ -9,4 +9,3 @@ def F_Cauchy(Temporal_Scheme, U_0, F, tf, dt):
     for t in range(0,N-1):
        U[:,t+1] = Temporal_Scheme(U[:,t],F,dt,t)
     return U
-
