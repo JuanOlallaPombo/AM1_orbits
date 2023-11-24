@@ -16,8 +16,6 @@ def F_Nbodies(U, t):
     Us = reshape(U, (Nb,Nc,2))              #Creating first pointer
     r = reshape(Us[:,:,0], (Nb,Nc))         #Pointer for position 
     v = reshape(Us[:,:,1], (Nb,Nc))         #Pointer for velocity
-    #print("Position =",r)
-    #print("Velocidad =",v)
 
     F = zeros((2*Nb*Nc))                    #Derivative matrix
     Fs = reshape(F, (Nb,Nc,2))              #Creating pointer for F
@@ -41,7 +39,7 @@ tf = 10
 dt = 0.001
 N = int(tf/dt)
 
-U_0 = array([1,0,0,1,0,0,0,-1,1,0,0,1,0,1,0,0,1,-1])  #Setting initial conditions, starts in point (1,0) with vertical velocity
+U_0 = array([1,0,0,1,0,0,0,-1,1,0,0,1,0,1,0,0,1,-1])  #Setting initial conditions
 x1 = array(zeros((N)))
 y1 = array(zeros((N)))
 z1 = array(zeros((N)))
@@ -71,7 +69,3 @@ ax1.plot(x2,y2,z2,'r')
 ax1.plot(x3,y3,z3,'b')
 ax1.set_aspect('auto')
 plt.show()
-
-
-
-
