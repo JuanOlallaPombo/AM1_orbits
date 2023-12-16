@@ -1,5 +1,6 @@
 from numpy import array, zeros, float64
 
+#Adding perturbations to the matrix as to test its stability
 def System_matrix(F, U0, t):
 
     eps=1e-6

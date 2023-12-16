@@ -5,11 +5,8 @@
     "\\Milestone3",
     "\\Milestone4",
     "\\Milestone5",
-    "\\modules",
-    "\\modules\\Cauchy_Problem",
-    "\\modules\\Stability_Regions",
-    "\\modules\\Temporal_Schemes"
+    "\\Milestone6"
   ],
-  "SelectedNode": "\\Milestone3\\Error.py",
+  "SelectedNode": "\\Milestone2\\Milestone2.py",
   "PreviewInSolutionExplorer": false
 }

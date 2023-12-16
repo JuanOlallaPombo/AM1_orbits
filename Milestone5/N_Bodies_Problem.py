@@ -40,6 +40,8 @@ dt = 0.001
 N = int(tf/dt)
 
 U_0 = array([1,0,0,1,0,0,0,-1,1,0,0,1,0,1,0,0,1,-1])  #Setting initial conditions
+#In order to understand what each coordinate means in terms of positions and velocities
+#check variable separation starting in code line 58
 x1 = array(zeros((N)))
 y1 = array(zeros((N)))
 z1 = array(zeros((N)))
@@ -50,6 +52,7 @@ x3 = array(zeros((N)))
 y3 = array(zeros((N)))
 z3 = array(zeros((N)))
 
+#Cauchy problem solving
 U = F_Cauchy(Crank_Nicolson, U_0, F_Nbodies, tf, dt)
 
 x1[:] = U[0, :]
@@ -62,8 +65,10 @@ z1[:] = U[12, :]
 z2[:] = U[14, :]
 z3[:] = U[16, :]
 
+#Showing results
 fig = plt.figure()
 ax1 = fig.add_subplot(111, projection='3d')
+ax1.set_title('N bodies problem')
 ax1.plot(x1,y1,z1,'g')
 ax1.plot(x2,y2,z2,'r')
 ax1.plot(x3,y3,z3,'b')
