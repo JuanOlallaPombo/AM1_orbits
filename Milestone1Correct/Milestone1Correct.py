@@ -2,17 +2,25 @@ from numpy import zeros, array
 import matplotlib.pyplot as plt
 from scipy.optimize import newton
 
+#Declaración de variables iniciales
+
 U_euler = array([1, 0, 0, 1])
 U_cn = array([1, 0, 0, 1])
 U_rk = array([1, 0, 0, 1])
+
+#Partición temporal
+
 N = 10000
 dt = 0.001
 
+#Función F del problema en diferencias finitas (atracción gravitatoria)
 def F_Kepler(U):
     x, y, vx, vy = U[0], U[1], U[2], U[3]
     mr = (x**2 + y**2)**1.5
     return array([vx, vy, -x/mr, -y/mr])
 
+
+#Inicialización de variables
 x_euler=array(zeros(N))
 y_euler=array(zeros(N))
 x_euler[0] = U_euler[0]
@@ -56,6 +64,7 @@ for i in range(1,N):
     x_rk[i] = U_rk[0]
     y_rk[i] = U_rk[1]
 
+#Gráficas de resultados para comparar
 plt.figure(1)
 plt.title('Euler')
 plt.axis('equal')

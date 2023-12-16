@@ -2,6 +2,7 @@ from numpy import array, zeros, linspace, abs, transpose, float64
 import matplotlib.pyplot as plt
 from Temporal_Schemes import Euler, Crank_Nicolson, RK4, Inverse_Euler
 
+#Calculates and shows stability regions for each temporal scheme
 def Stability_Region(Scheme, N, x0, xf, y0, yf):
 
     x, y = linspace(x0, xf, N), linspace(y0, yf, N)
@@ -17,6 +18,7 @@ def Stability_Region(Scheme, N, x0, xf, y0, yf):
     return rho, x, y
 
 
+#Function that test the previous function
 def test_Stability_Regions():
 
     schemes = [Euler, Crank_Nicolson, RK4, Inverse_Euler]

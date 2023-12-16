@@ -18,10 +18,12 @@ U_0 = array([1,0,0,1])  #Setting initial conditions, starts in point (1,0) with 
 x = array(zeros(N))
 y = array(zeros(N))
 
+#Solving Cauchy Problem
 U = F_Cauchy(Crank_Nicolson, U_0, F_Kepler, tf, dt)
 x[:] = U[0,:]
 y[:] = U[1,:]
 
+#Graph with trajectory results
 plt.figure(1)
 plt.title('Trajectory')
 plt.axis('equal')
