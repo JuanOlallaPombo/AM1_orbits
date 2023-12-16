@@ -79,6 +79,8 @@ for i in range(0,5):
 
     eps = array([1e-6,1e-6,1e-6])
 
+
+#Orbits around Lagrange Points with an Embedded Runge-Kutta method
     U_0 = zeros((6))
     U_0[0:3] = Lagrange + eps
     U_0[3:6] = eps
