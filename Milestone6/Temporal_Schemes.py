@@ -89,7 +89,7 @@ def RK_stages( F, U, t, dt, a, c ):
 
      for i in range(len(c)): 
 
-        for  j in range(len(c)-1): 
+        for  j in range(len(c)-1):
           Up = U + dt * dot( a[i, :], k)
 
         k[i, :] = F( Up, t + c[i] * dt ) 

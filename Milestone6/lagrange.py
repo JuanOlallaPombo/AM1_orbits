@@ -14,17 +14,17 @@ Nb = 3
 Nc = 3
 
 #N-body Problem Equations
-def F_Nbodies(U0, t):
-    UT = [1,0,0,0,2e-3,0]
+def F_Nbodies(U1, t):
+    UT = [1,0,0,0,0,0]
     US = [0,0,0,0,0,0]
     U = zeros((2*Nb*Nc))
     Us = reshape(U, (Nb,Nc,2))              #Creating first pointer
     r = reshape(Us[:,:,0], (Nb,Nc))         #Pointer for position
-    r [0,:] = U0[0:3]
+    r [0,:] = U1[0:3]
     r [1,:] = UT[0:3]
     r [2,:] = US[0:3]
     v = reshape(Us[:,:,1], (Nb,Nc))         #Pointer for velocity
-    v [0,:] = [0,0,0]
+    v [0,:] = U1[3:6]
     v [1,:] = UT[3:6]
     v [2,:] = US[3:6]
 
@@ -33,7 +33,7 @@ def F_Nbodies(U0, t):
     drdt = reshape(Fs[:,:,0], (Nb,Nc))      #Pointer for position derivative
     dvdt = reshape(Fs[:,:,1], (Nb,Nc))      #Pointer for velocity derivative
 
-    drdt[:] = v[:]                                #Derivative of position equals velocity
+    drdt[:,:] = v[:,:]                                #Derivative of position equals velocity
 
     for i in range(0,Nb): 
         for j in range(0,Nb):
@@ -43,7 +43,7 @@ def F_Nbodies(U0, t):
                 denom = ((r[j,0]-r[i,0])**2+(r[j,1]-r[i,1])**2+(r[j,2]-r[i,2])**2)**0.5
                 for k in range(0,Nc):
                     dvdt[i,k] = (r[j,k] - r[i,k])/denom
-    return F[0:6]
+    return array([drdt[0,0],drdt[0,1],drdt[0,2],dvdt[0,0],dvdt[0,1],dvdt[0,2]])
 
 #Cauchy Problem for 3 bodies (Example)
 tf = 10
@@ -63,22 +63,25 @@ U0[4,:] = [ 1.1, 0.0, 0., 0., 0., 0.  ]
 for i in range(0,5):
     Lagrange = array(zeros(len(U0[i,:])))
     def F_Nbodies_RES(U0):
-        F = F_Nbodies(U0,0)
+        U1 = zeros((6))
+        U1[0:3] = U0
+        U1[3:6] = [0,0,0]
+        F = F_Nbodies(U1,0)
         return F[3:6]
     Lagrange = newton(F_Nbodies_RES,U0[i,0:3])
     print(Lagrange)
 
     #Stability analysis based on eigenvalues of A
-    lambdaAs = zeros((3))
-    lambdaAs = Eigenvalues_Jacobian(F_Nbodies, U0[i,0:3],0)
-    for lambdaA in lambdaAs:
-        print('Eigenvalue of A = ', lambdaA)
+    #lambdaAs = zeros((3))
+    #lambdaAs = Eigenvalues_Jacobian(F_Nbodies, U0[i,0:3],0)
+    #for lambdaA in lambdaAs:
+    #    print('Eigenvalue of A = ', lambdaA)
 
     eps = array([1e-6,1e-6,1e-6])
 
     U_0 = zeros((6))
     U_0[0:3] = Lagrange + eps
-    U_0[3:6] = [0,0,0]
+    U_0[3:6] = eps
     U_L = F_Cauchy(Embedded_RK,U_0, F_Nbodies, tf, dt)
 
     x1 = array(zeros((N)))
