@@ -13,3 +13,6 @@ List of the milestones:
 
 Files in the modules folder have been used in milestones and contain temporal schemes, Cauchy problem
 solving functions and functions for stability regions calculations.
+
+Contents of Hito 7 (Milestone 7) with the different modules and their structure  
+![](hito7/Figures/Diagrama.png)
