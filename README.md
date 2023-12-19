@@ -10,6 +10,7 @@ List of the milestones:
 4. Regions of stability for different temporal schemes and application to Kepler problem.
 5. N-bodies problem integration.
 6. Orbits around Lagrange points.
+7. Chaos-ic Music! : create melodies using results from dynamic systems models.
 
 Files in the modules folder have been used in milestones and contain temporal schemes, Cauchy problem
 solving functions and functions for stability regions calculations.
